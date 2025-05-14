@@ -14,6 +14,7 @@
     }
     .container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 60px 80px;
@@ -54,6 +55,11 @@
       align-items: center;
       font-family: 'Open Sans', sans-serif;
       color: #835c2f;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .contact-item:hover {
+      transform: scale(1.05);
     }
     .contact-item img {
       width: 30px;
@@ -61,6 +67,20 @@
     }
     .illustration img {
       max-height: 300px;
+    }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px;
+      }
+      .intro, .illustration {
+        max-width: 100%;
+      }
+      .contact-info {
+        flex-direction: column;
+        gap: 20px;
+      }
     }
   </style>
 </head>
@@ -72,11 +92,11 @@
       <div class="connect">
         <h2>let’s connect!</h2>
         <div class="contact-info">
-          <div class="contact-item">
+          <div class="contact-item" onclick="sendEmail()">
             <img src="https://img.icons8.com/ios-filled/50/000000/email-open.png" alt="Email Icon" />
             denishaadh10@gmail.com
           </div>
-          <div class="contact-item">
+          <div class="contact-item" onclick="openLinkedIn()">
             <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn Icon" />
             Denisha Adhikari
           </div>
@@ -87,5 +107,15 @@
       <img src="DENSHA ADHIKARI.png" alt="Illustration of Denisha" />
     </div>
   </div>
+
+  <script>
+    function sendEmail() {
+      window.location.href = "mailto:denishaadh10@gmail.com";
+    }
+
+    function openLinkedIn() {
+      window.open("https://www.linkedin.com/in/denisha-adhikari", "_blank");
+    }
+  </script>
 </body>
 </html>
